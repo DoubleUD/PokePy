@@ -11,3 +11,5 @@ def pt():
 Tackle = Pokemon.Move("Tackle", 0, 40, 100, 0, pt())
 
 Tackle.effect
+
+#secondtest
