@@ -36,17 +36,6 @@ typechart= [[10, 10, 10, 10, 10,  5, 10, 00,  5, 10, 10, 10, 10, 10, 10, 10, 10,
             [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]]
 
 
-class Move:
-
-    def __init__(self,name,type,power,accuracy,category, effect):
-        self.name = name
-        self.type = type
-        self.power = power
-        self.accuracy = accuracy
-        self.cat = category
-        self.effect = effect
-
-
 class Mon:
 
     def __init__(self, species, iv, ev, ability, moveset, nature, exp, frnd, item, shiny, gender, name, id,):
