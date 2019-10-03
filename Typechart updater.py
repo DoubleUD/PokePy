@@ -1,5 +1,5 @@
 import Pokemon
-def typeup()
+def typeup():
     print(types)
     attacking = int(input("Attacking type?"))
     relationship = input("s/n/r/u") # Super effective/ Neutral/ Not very effective/ No effect
@@ -15,7 +15,7 @@ def typeup()
     relationships = {"s": 20, "n": 10, "r": 5, "u": 0}
 
     for i in defendingl:
-        Pokemon.typechart[attacking][i]= relationships[relationship]
+        Pokemon.typechart[attacking][i] = relationships[relationship]
 
     print(Pokemon.typechart)
 
