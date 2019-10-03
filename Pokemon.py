@@ -13,6 +13,10 @@ class Species:
         self.speed = self.stats[5]
         self.type = (types[type1], types[type2])
         self.evo = evo
+        self.abilities = abilities
+        self.movepool = movepool
+        self.growth = growth
+
 
 class Mon:
 
