@@ -2,11 +2,11 @@ import Pokemon
 def typeup()
     print(types)
     attacking = int(input("Attacking type?"))
-    relationship = input("s/n/r/u")
-    sen = "p"
+    relationship = input("s/n/r/u") # Super effective/ Neutral/ Not very effective/ No effect
+    sen = "p" #Sentinel Variable
     defendingl=[]
     while sen != "q":
-        defending = input("Defending type(s)?")
+        defending = input("Defending type(s)? Type q to quit") 
         if defending == "q":
             sen = defending
         else:
