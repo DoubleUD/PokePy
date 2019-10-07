@@ -34,14 +34,50 @@ class Mon:
         self.exp = Data.exptable[lvl][self.species.growth]
 
 
-        self.hp = species.hp + self.iv[1]
+        self.hp = int((((2 * self.species.hp) + self.iv[0] + (self.ev[0]/4)) * self.lvl /100) + self.lvl + 10)
+
+        self.attack = int(((((2 * self.species.attack) + self.iv[1] + (self.ev[1]/4)) * self.lvl /100) + 5) * \
+                   Data.natures[self.nature][0])
+
+        self.defense = int(((((2 * self.species.defense) + self.iv[2] + (self.ev[2] / 4)) * self.lvl / 100) + 5) * \
+                   Data.natures[self.nature][1])
+
+        self.spattack = int(((((2 * self.species.spattack) + self.iv[3] + (self.ev[3] / 4)) * self.lvl / 100) + 5) * \
+                   Data.natures[self.nature][2])
+
+        self.spdefense = int(((((2 * self.species.spdefense) + self.iv[4] + (self.ev[4] / 4)) * self.lvl / 100) + 5) * \
+                   Data.natures[self.nature][3])
+
+        self.speed = int(((((2 * self.species.speed) + self.iv[5] + (self.ev[5] / 4)) * self.lvl / 100) + 5) * \
+                   Data.natures[self.nature][4])
+
+    def updatestats(self, hp = True, attack = True, defense = True, spattack = True, spdefense = True, speed = True):
+        if hp == True:
+            self.hp = int((((2 * self.species.hp) + self.iv[0] + (self.ev[0] / 4)) * self.lvl / 100) + self.lvl + 10)
+        if attack == True:
+            self.attack = int(((((2 * self.species.attack) + self.iv[1] + (self.ev[1] / 4)) * self.lvl / 100) + 5) * \
+                              Data.natures[self.nature][0])
+        if defense == True:
+            self.defense = int(((((2 * self.species.defense) + self.iv[2] + (self.ev[2] / 4)) * self.lvl / 100) + 5) * \
+                               Data.natures[self.nature][1])
+        if spattack == True:
+            self.spattack = int(((((2 * self.species.spattack) + self.iv[3] + (self.ev[3] / 4)) * self.lvl / 100) + 5) * \
+                                Data.natures[self.nature][2])
+        if spdefense == True:
+            self.spdefense = int(
+                ((((2 * self.species.spdefense) + self.iv[4] + (self.ev[4] / 4)) * self.lvl / 100) + 5) * \
+                Data.natures[self.nature][3])
+        if speed == True:
+            self.speed = int(((((2 * self.species.speed) + self.iv[5] + (self.ev[5] / 4)) * self.lvl / 100) + 5) * \
+                             Data.natures[self.nature][4])
+
 
     def checklvlup(self):
         if self.lvl != 100:
             if Data.exptable[self.lvl+1][self.species.growth] <= self.exp:
                 self.lvl += 1
                 self.checklvlup()
-
+        self.updatestats()
 
 class BattleMon(Mon):
 
@@ -72,7 +108,7 @@ class Player:
             else:
                 self.pc.append(pokemon)
         else:
-            print("Thats not a Pokémon!")
+            print("That's not a Pokémon!")
 
     def additem(self, item):
         self.bag.append(item)
