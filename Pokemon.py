@@ -3,7 +3,7 @@ class Species:
 
     def __init__(self, dex, name, stats, type1, type2, evo, abilities, movepool, growth):
         self.dex = dex
-        self.species = name
+        self.name = name
         self.stats = stats
         self.hp = self.stats[0]
         self.attack = self.stats[1]
@@ -17,7 +17,7 @@ class Species:
 
 class Mon:
 
-    def __init__(self, species, iv, ev, ability, moveset, nature, lvl, frnd, item, shiny, gender, id, name = species, isegg = False):
+    def __init__(self, species, iv, ev, ability, moveset, nature, lvl, frnd, item, shiny, gender, id, name = None, isegg = False):
         self.species = species
         self.iv = iv
         self.ev = ev
@@ -29,7 +29,10 @@ class Mon:
         self.item = item
         self.shiny = shiny
         self.gender = gender
-        self.name = name
+        if name != None:
+            self.name = name
+        else:
+            self.name = self.species.name
         self.id = id
         self.exp = Data.exptable[lvl][self.species.growth]
 
@@ -76,8 +79,8 @@ class Mon:
         if self.lvl != 100:
             if Data.exptable[self.lvl+1][self.species.growth] <= self.exp:
                 self.lvl += 1
-                self.updatestats()
                 self.checklvlup()
+        self.updatestats()
 
 class BattleMon(Mon):
 
@@ -91,7 +94,7 @@ class BattleMon(Mon):
 
 class Player:
     import random
-    def __init__(self, name, id=random.randint(0, 999999), party = [], pc = [], bag = [], money = 0):
+    def __init__(self, name, id=random.randint(0, 999999), party = [], pc = [], bag = [], money=0):
 
         self.name = name
         self.id = id
