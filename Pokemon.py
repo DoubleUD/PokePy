@@ -76,8 +76,8 @@ class Mon:
         if self.lvl != 100:
             if Data.exptable[self.lvl+1][self.species.growth] <= self.exp:
                 self.lvl += 1
+                self.updatestats()
                 self.checklvlup()
-        self.updatestats()
 
 class BattleMon(Mon):
 
