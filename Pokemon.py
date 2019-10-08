@@ -17,7 +17,7 @@ class Species:
 
 class Mon:
 
-    def __init__(self, species, iv, ev, ability, moveset, nature, lvl, frnd, item, shiny, gender, name, id):
+    def __init__(self, species, iv, ev, ability, moveset, nature, lvl, frnd, item, shiny, gender, id, name = species, isegg = False):
         self.species = species
         self.iv = iv
         self.ev = ev
@@ -91,7 +91,7 @@ class BattleMon(Mon):
 
 class Player:
     import random
-    def __init__(self, name, id=random.randint(0, 999999), party=[], pc=[], bag=[], money=0):
+    def __init__(self, name, id=random.randint(0, 999999), party = [], pc = [], bag = [], money = 0):
 
         self.name = name
         self.id = id
